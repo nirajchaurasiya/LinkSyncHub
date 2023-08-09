@@ -96,7 +96,9 @@ export default function Video() {
                     <img src="/others/img.png" alt="video" />
                   </div>
                 </Link>
-                <Link href={`/video/${e}`}>
+                <Link
+                  href={`/video?src=${e}&channel=TarakMehtaKaOoltahChashmahEpisodes`}
+                >
                   <div className={styles.video_details}>
                     <div className={styles.video_title}>
                       <p>

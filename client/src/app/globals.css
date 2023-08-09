@@ -39,7 +39,6 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: 'Noto Sans', sans-serif;
-  transition: 0.2s all linear;
   --line-bg-color: var(--light-line-bg-color);
   --hover-bg-color: var(--light-hover-bg-color);
 }

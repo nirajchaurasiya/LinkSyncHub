@@ -2,10 +2,11 @@
 import React, { useState } from "react";
 import styles from "./page.module.css";
 import {
+  BiPodcast,
   BiSearch,
   BiSolidMoon,
+  BiSolidPopsicle,
   BiSolidVideoPlus,
-  BiVideoPlus,
 } from "react-icons/bi";
 import {
   AiFillHome,
@@ -65,9 +66,6 @@ export default function Navbar() {
               <BiSearch />
             </button>
           </div>
-          <div className={styles.color_mode}>
-            <BiSolidVideoPlus />
-          </div>
         </div>
 
         {/* Third Component */}
@@ -83,14 +81,15 @@ export default function Navbar() {
             <IoNotificationsSharp />
             <p className={styles.notification_count}>9+</p>
           </div>
-          <div
-            onClick={() => {
-              setShowNotification(false);
-              setShowProfile(!showProfile);
-            }}
-            className={styles.profile_picture}
-          >
-            <img src="/assests/user.png" alt="" />
+          <div className={styles.profile_picture}>
+            <img
+              onClick={() => {
+                setShowNotification(false);
+                setShowProfile(!showProfile);
+              }}
+              src="/assests/user.png"
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -107,23 +106,20 @@ export default function Navbar() {
                 <span>HOME</span>
               </div>
             </Link>
-            <Link
-              style={{ color: "var(--text-color)" }}
-              href="/recommended/videos"
-            >
-              <div>
-                <p>
-                  <MdOutlineRecommend />
-                </p>
-                <span>RECOMMENDED</span>
-              </div>
-            </Link>
             <Link style={{ color: "var(--text-color)" }} href="/new/videos">
               <div>
                 <p>
                   <RiVideoFill />
                 </p>
-                <span>NEW</span>
+                <span>NEW VIDEOS</span>
+              </div>
+            </Link>
+            <Link style={{ color: "var(--text-color)" }} href="/new/posts">
+              <div>
+                <p>
+                  <BiSolidPopsicle />
+                </p>
+                <span>NEW POSTS</span>
               </div>
             </Link>
           </div>
@@ -138,12 +134,20 @@ export default function Navbar() {
                 <span>HISTORY</span>
               </div>
             </Link>
-            <Link style={{ color: "var(--text-color)" }} href="/videos/liked">
+            <Link style={{ color: "var(--text-color)" }} href="/liked/videos">
               <div>
                 <p>
                   <AiFillLike />
                 </p>
-                <span>LIKED</span>
+                <span>LIKED VIDEOS</span>
+              </div>
+            </Link>
+            <Link style={{ color: "var(--text-color)" }} href="/liked/posts">
+              <div>
+                <p>
+                  <BiPodcast />
+                </p>
+                <span>LIKED POSTS</span>
               </div>
             </Link>
             <Link style={{ color: "var(--text-color)" }} href="/playlist">
@@ -152,6 +156,23 @@ export default function Navbar() {
                   <MdLibraryAdd />
                 </p>
                 <span>PLAYLIST</span>
+              </div>
+            </Link>
+
+            <Link style={{ color: "var(--text-color)" }} href="/upload/video">
+              <div>
+                <p>
+                  <BiSolidVideoPlus />
+                </p>
+                <span>UPLOAD VIDEO</span>
+              </div>
+            </Link>
+            <Link style={{ color: "var(--text-color)" }} href="/upload/post">
+              <div>
+                <p>
+                  <BiPodcast />
+                </p>
+                <span>UPLOAD POST</span>
               </div>
             </Link>
           </div>
@@ -183,12 +204,14 @@ export default function Navbar() {
                 <span>SETTING</span>
               </div>
             </Link>
-            <div>
-              <p>
-                <MdFeedback />
-              </p>
-              <span>SEND FEEDBACK</span>
-            </div>
+            <Link href="/send-feedbacks" style={{ color: "var(--text-color)" }}>
+              <div>
+                <p>
+                  <MdFeedback />
+                </p>
+                <span>SEND FEEDBACK</span>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
@@ -203,7 +226,12 @@ export default function Navbar() {
       >
         <div className={styles.profile_options}>
           {/* profile */}
-          <div className={styles.main_profile_image_username}>
+          <div
+            onClick={() => {
+              setShowProfile(!showProfile);
+            }}
+            className={styles.main_profile_image_username}
+          >
             <div className={styles.right_profile}>
               <img src="/assests/user.png" alt="profile" />
             </div>
@@ -216,7 +244,12 @@ export default function Navbar() {
           {/* end profile */}
 
           {/* More in profile */}
-          <div className={styles.more_options}>
+          <div
+            onClick={() => {
+              setShowProfile(!showProfile);
+            }}
+            className={styles.more_options}
+          >
             {/* Profile */}
             <div className={styles.more_option}>
               <p>
@@ -252,7 +285,12 @@ export default function Navbar() {
           <div className={styles.vertical_line}></div>
 
           {/* Setting */}
-          <div className={styles.more_options}>
+          <div
+            onClick={() => {
+              setShowProfile(!showProfile);
+            }}
+            className={styles.more_options}
+          >
             {/* Setting */}
             <div className={styles.more_option}>
               <p>
@@ -264,7 +302,12 @@ export default function Navbar() {
           </div>
           <div className={styles.vertical_line}></div>
           {/* Setting */}
-          <div className={styles.more_options}>
+          <div
+            onClick={() => {
+              setShowProfile(!showProfile);
+            }}
+            className={styles.more_options}
+          >
             {/* Setting */}
             <div className={styles.more_option}>
               <p>
@@ -278,7 +321,12 @@ export default function Navbar() {
           {/*  */}
 
           {/* Setting */}
-          <div className={styles.more_options}>
+          <div
+            onClick={() => {
+              setShowProfile(!showProfile);
+            }}
+            className={styles.more_options}
+          >
             {/* Setting */}
             <div className={styles.more_option}>
               <p>
@@ -314,16 +362,32 @@ export default function Navbar() {
           <div className={styles.all_notifications}>
             {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((e, index) => {
               return (
-                <div key={index} className={styles.single_notification}>
+                <div
+                  onClick={() => {
+                    setShowNotification(!showNotification);
+                  }}
+                  key={index}
+                  className={styles.single_notification}
+                >
                   {/* notification channel img */}
                   <div className={styles.channel_img}>
                     <div>
-                      <div className={styles.notification_bg}></div>
-                      <img src="/assests/user.png" alt="channel" />
+                      {/* <div className={styles.notification_bg}></div> */}
+                      <Link href={`/profile/TarakMehtaKaOoltahChashmah${e}`}>
+                        <img src="/assests/user.png" alt="channel" />
+                      </Link>
                     </div>
                   </div>
                   {/* Notification title */}
-                  <div className={styles.notification_title}>
+                  <div
+                    onClick={() => {
+                      window.open(
+                        `/video?src=${e}&channel=TarakMehtaKaOoltahChashmah`,
+                        "_blank"
+                      );
+                    }}
+                    className={styles.notification_title}
+                  >
                     <p>
                       The Daily Show ले The Rise of Vaping - If You Don&apos;t
                       Know, Now You Know | The Daily Show अपलोड गरेको
@@ -331,7 +395,15 @@ export default function Navbar() {
                     <p>{e} hours ago</p>
                   </div>
                   {/* Notification video image */}
-                  <div className={styles.notification_image}>
+                  <div
+                    onClick={() => {
+                      window.open(
+                        `/video?src=${e}&channel=TarakMehtaKaOoltahChashmah`,
+                        "_blank"
+                      );
+                    }}
+                    className={styles.notification_image}
+                  >
                     <img src="/others/img.png" alt="channel" />
                   </div>
                   {/*  */}
