@@ -24,6 +24,9 @@
   --dark-line-bg-color: rgb(37, 37, 37);
 
   --light-line-bg-color: rgb(221, 220, 220);
+
+  --loading-bar-light-bg: #b2b4b4;
+  --loading-bar-dark-bg: #464646;
 }
 
 ::-webkit-scrollbar {
@@ -41,6 +44,7 @@ body {
   font-family: 'Noto Sans', sans-serif;
   --line-bg-color: var(--light-line-bg-color);
   --hover-bg-color: var(--light-hover-bg-color);
+  --loading-bar-bg: var(--loading-bar-light-bg);
 }
 
 body.light {
@@ -50,7 +54,7 @@ body.light {
   --hover-bg-color: var(--light-hover-bg-color);
   transition: 0.2s all linear;
   --line-bg-color: var(--light-line-bg-color);
-
+  --loading-bar-bg: var(--loading-bar-light-bg);
 }
 
 body.dark {
@@ -60,7 +64,9 @@ body.dark {
   --hover-bg-color: var(--dark-hover-bg-color);
   transition: 0.2s all linear;
   --line-bg-color: var(--dark-line-bg-color);
+  --loading-bar-bg: var(--loading-bar-dark-bg);
 }
+
 
 a {
   text-decoration: none;
