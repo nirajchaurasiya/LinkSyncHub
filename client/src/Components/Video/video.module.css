@@ -131,6 +131,11 @@
 
 .actual_video_box video {
     width: 100%;
+    box-shadow:
+        2px 4px 200px rgba(208, 235, 90, 0.75),
+        2px 4px 200px rgba(233, 12, 188, 0.75),
+        2px 4px 200px rgba(3, 32, 33, 0.75);
+    /* Add more box shadow values as needed */
 }
 
 .video_descriptions {
@@ -217,6 +222,7 @@
     border: none;
     outline: none;
     height: 38px;
+    width: 90px;
     cursor: pointer;
     border: 1px solid var(--hover-bg-color);
     border-radius: 10px;

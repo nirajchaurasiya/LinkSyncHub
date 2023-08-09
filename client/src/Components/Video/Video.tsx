@@ -3,18 +3,20 @@ import React, { useEffect, useState } from "react";
 import styles from "./video.module.css";
 import Link from "next/link";
 import { MdVerified } from "react-icons/md";
+import { usePathname, useSearchParams } from "next/navigation";
 import { AiTwotoneLike, AiTwotoneDislike } from "react-icons/ai";
-
 export default function Video() {
   const [url, setUrl] = useState("");
   const [changeSubscriptionText, setChangeSubscriptionText] =
     useState("Subscribe");
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   useEffect(() => {
-    const url = window.location.href;
-    const id = url.split("=")[1].split("&")[0];
+    // const url = `${pathname}?${searchParams}`; Full URL
+    const full_Url = `${pathname}?${searchParams}`;
+    const id = full_Url.split("=")[1].split("&")[0];
     setUrl(id);
-    console.log(id);
-  }, [url]);
+  }, [searchParams, pathname, url]);
   return (
     <div className={styles.video_recommendation}>
       <div className={styles.video_flex}>
