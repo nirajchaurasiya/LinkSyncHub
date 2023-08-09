@@ -1,0 +1,119 @@
+.home_component {
+    width: 85vw;
+    margin: auto;
+}
+
+@media (max-width: 500px) {
+    .home_component {
+        width: 98vw;
+    }
+
+    .home_main_component {
+        margin: auto;
+        padding: 5px 5px 60px 5px !important;
+    }
+}
+
+.home_main_component {
+    margin: auto;
+    padding: 30px 20px 60px 20px;
+}
+
+.video_components {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    gap: 10px;
+}
+
+/* Adjust card width for different devices */
+.video {
+    padding: 10px;
+    display: grid;
+    gap: 5px;
+    border-radius: 5px;
+    width: calc(25.33% - 20px);
+    /* Three cards per row on larger screens */
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+}
+
+.video:hover {
+    border: 1px solid var(--hover-bg-color);
+}
+
+.video:active {
+    background-color: var(--hover-bg-color);
+}
+
+@media (max-width: 1400px) {
+    .video {
+        width: calc(33% - 20px);
+        /* Two cards per row on medium screens */
+    }
+}
+
+@media (max-width: 1024px) {
+    .video {
+        width: calc(50% - 20px);
+        /* Two cards per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .video {
+        width: calc(100% - 0px);
+        /* Single card per row on smaller screens */
+    }
+}
+
+.image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.description {
+    display: grid;
+    gap: 5px;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.video_img img {
+    width: 40px;
+    height: 40px;
+}
+
+.title {
+    word-break: break-all;
+    font-weight: 500;
+    font-size: 14px;
+    /* Adjust font size for smaller screens */
+}
+
+.author {
+    margin-left: 45px;
+}
+
+.author span {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.views {
+    display: flex;
+    gap: 2px;
+    margin-top: 3px;
+    font-size: 12px;
+    /* Adjust font size for smaller screens */
+}
