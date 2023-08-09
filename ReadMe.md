@@ -1,4 +1,4 @@
-<!-- # NextJS Social Video App
+NextJS Social Video App
 
 Welcome to the NextJS Social Video App! This is a web application that combines video watching functionality similar to YouTube, social interactions like Facebook, and real-time chat support. With this app, users can enjoy videos, interact with friends, and engage in conversations seamlessly.
 
@@ -24,9 +24,9 @@ Welcome to the NextJS Social Video App! This is a web application that combines 
 
 ## Getting Started
 
-1. Clone the repository: `git clone https://github.com/nirajchaurasiya/videowatching-with-youtube-and-whatsapp-support.git`
+1. Clone the repository: `git clone https://github.com/nirajchaurasiya/LinkSyncHub.git`
 
-2. Navigate to the project directory: `cd videowatching-with-youtube-and-whatsapp-support`
+2. Navigate to the project directory: `cd client`
 
 3. Install dependencies: `npm install`
 
@@ -52,4 +52,4 @@ Contributions are welcome! If you find any bugs or have suggestions for improvem
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). -->
+This project is licensed under the [MIT License](LICENSE).
