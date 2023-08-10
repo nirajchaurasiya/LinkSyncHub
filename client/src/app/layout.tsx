@@ -1,4 +1,3 @@
-"use client";
 import Providers from "./providers";
 import Navbar from "@/Components/Navbar/Navbar";
 import "./globals.css";
@@ -6,7 +5,6 @@ import React from "react";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 import type { Metadata } from "next";
-import { useEffect } from "react";
 export const metadata: Metadata = {
   title: "LinkSyncHub - An All-In-One-Social-Hub",
   description:
@@ -18,16 +16,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  useEffect(() => {
-    console.log("object");
-    const theme = localStorage.getItem("linksynchub");
-
-    if (theme) {
-      const body = document.body;
-      body.classList.remove("light", "dark"); // Remove any existing theme classes
-      body.classList.add(theme); // Add the new theme class
-    }
-  }, []);
   return (
     <html lang="en">
       <body

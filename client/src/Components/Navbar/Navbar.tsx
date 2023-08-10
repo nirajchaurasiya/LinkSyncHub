@@ -77,6 +77,16 @@ export default function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    // console.log("object");
+    const theme = localStorage.getItem("linksynchub");
+
+    if (theme) {
+      const body = document.body;
+      body.classList.remove("light", "dark"); // Remove any existing theme classes
+      body.classList.add(theme); // Add the new theme class
+    }
+  }, []);
   // const navbarClassName = !showBackground ? "no_transparent" : "transparent";
 
   return (
