@@ -1,7 +1,7 @@
 .video_recommendation {
     width: 90vw;
     margin: auto;
-    padding: 20px 0;
+    padding: 5px 0;
 }
 
 .video_flex {
@@ -150,10 +150,44 @@
     z-index: -1;
     height: 60vh;
     width: 60vw;
-    box-shadow:
-        2px 4px 200px rgba(78, 73, 77, 0.75),
-        2px 4px 200px rgba(47, 48, 48, 0.75);
-    /* Add more box shadow values as needed */
+    animation: animate 10s infinite linear;
+}
+
+@keyframes animate {
+    0% {
+        box-shadow:
+            2px 4px 200px rgba(122, 116, 122, 0.75),
+            10px 4px 300px rgba(99, 99, 99, 0.75);
+        /* Add more box shadow values as needed */
+    }
+
+    30% {
+        box-shadow:
+            2px 4px 100px rgba(209, 126, 209, 0.75),
+            10px 4px 300px rgba(99, 99, 99, 0.75);
+        /* Add more box shadow values as needed */
+    }
+
+    60% {
+        box-shadow:
+            2px 4px 200px rgba(122, 116, 122, 0.75),
+            10px 4px 300px rgba(228, 136, 136, 0.75);
+        /* Add more box shadow values as needed */
+    }
+
+    90% {
+        box-shadow:
+            2px 4px 200px rgba(122, 116, 122, 0.75),
+            10px 4px 300px rgba(22, 209, 234, 0.75);
+        /* Add more box shadow values as needed */
+    }
+
+    100% {
+        box-shadow:
+            2px 4px 200px rgba(122, 116, 122, 0.75),
+            10px 4px 300px rgba(99, 99, 99, 0.75);
+        /* Add more box shadow values as needed */
+    }
 }
 
 @media (max-width:800px) {
