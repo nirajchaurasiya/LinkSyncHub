@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import {
   BiPodcast,
@@ -24,18 +24,63 @@ import {
   MdSettings,
   MdHelp,
 } from "react-icons/md";
-import { IoNotificationsSharp, IoNotificationsOutline } from "react-icons/io5";
+import { IoNotificationsSharp } from "react-icons/io5";
 import Link from "next/link";
 import { FaUserAlt } from "react-icons/fa";
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(true);
   const [showProfile, setShowProfile] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
+  const [className, setClassName] = useState("transparent");
   const toggleTheme = () => {
-    document.body.classList.toggle("dark");
+    const theme = localStorage.getItem("linksynchub");
+    // const toSet = theme === "light" ? "dark" : "light";
+    if (theme === "light" || theme === "" || theme === undefined) {
+      localStorage.setItem("linksynchub", "dark");
+      // document.body.classList.remove("light");
+      // document.body.classList.add("dark");
+      setClassName("transparent");
+      window.location.reload();
+    } else {
+      localStorage.setItem("linksynchub", "light");
+      // document.body.classList.remove("dark");
+      // document.body.classList.add("light");
+      setClassName("no_transparent");
+      window.location.reload();
+    }
   };
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const theme = localStorage.getItem("linksynchub");
+      // Means scroll to top == true
+      if (scrollTop > 0) {
+        // console.log("Scrolled");
+        if (theme === "light") {
+          setClassName("no_transparent");
+        } else {
+          setClassName("no_transparent");
+        }
+      } else {
+        // console.log("Scrolled to top");
+        if (theme === "light") {
+          setClassName("no_transparent");
+        } else {
+          setClassName("transparent");
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // const navbarClassName = !showBackground ? "no_transparent" : "transparent";
+
   return (
-    <div className={styles.main_nav}>
+    <div id="main_navbar" className={className}>
       {/* Navbar */}
       <div className={styles.nav}>
         {/* First Components */}
@@ -56,7 +101,6 @@ export default function Navbar() {
             </Link>
           </div>
         </div>
-
         {/* Second Navbar : Search bar */}
 
         <div className={styles.second_component}>

@@ -7,6 +7,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { AiTwotoneLike, AiTwotoneDislike } from "react-icons/ai";
 export default function Video() {
   const [url, setUrl] = useState("");
+  const [theme, setTheme] = useState("light");
   const [changeSubscriptionText, setChangeSubscriptionText] =
     useState("Subscribe");
   const pathname = usePathname();
@@ -17,11 +18,27 @@ export default function Video() {
     const id = full_Url.split("=")[1].split("&")[0];
     setUrl(id);
   }, [searchParams, pathname, url]);
+
+  useEffect(() => {
+    if (localStorage) {
+      const theme_mode = localStorage?.getItem("linksynchub");
+      setTheme(theme_mode || "light");
+    } else {
+      setTheme("light");
+    }
+  }, [theme]);
+
   return (
     <div className={styles.video_recommendation}>
       <div className={styles.video_flex}>
         <div className={styles.video_box}>
           <div className={styles.actual_video_box}>
+            {theme === "light" ? (
+              <div className={`${styles.no_shadow}`}></div>
+            ) : (
+              <div className={`${styles.change_box_shadow}`}></div>
+            )}
+
             <video src="/others/video.mp4" autoPlay controls></video>
           </div>
           {/*  */}

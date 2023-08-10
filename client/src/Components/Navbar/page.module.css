@@ -1,5 +1,5 @@
 .main_nav {
-    background-color: var(--bg-color);
+    background-color: transparent;
     color: var(--text-color);
     position: sticky;
     top: 0;
@@ -47,10 +47,6 @@
     background-color: var(--text-color);
 }
 
-/* .first_component .three_line:hover {
-    background-color: var(--bg-color);
-} */
-
 .nav_logo {
     cursor: pointer;
     font-weight: 600;
@@ -68,34 +64,44 @@
     display: flex;
     align-items: center;
     border: 1px solid var(--line-bg-color);
-    background-color: transparent;
-    /* Add a light background color for contrast */
+    background-color: var(--bg-color);
     height: 35px;
-    /* Slightly increased height for better visibility */
-    width: 30vw;
+    width: 38vw;
     border-radius: 20px;
-    /* Rounded corners for a more modern look */
-    padding: 5px;
-    /* Added padding for spacing */
+    padding: 0px;
 }
 
-.navbar_searchinput input {
+.navbar_searchinput input:focus {
     flex: 1;
-    border: none;
+    /* border: none; */
+    border: 1px solid rgb(46, 60, 59);
     outline: none;
-    padding: 0 10px;
-    background-color: transparent;
+    height: 36px;
+    padding: 0 11px;
+    background-color: var(--bg-color);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     color: var(--text-color);
     font-size: 15px;
 }
 
-.navbar_searchinput button:hover {
-    background-color: var(--hover-bg-color);
+.navbar_searchinput input {
+    flex: 1;
+    /* border: none; */
+    border: 1px solid var(--search-border);
+    outline: none;
+    height: 35px;
+    padding: 0 11px;
+    background-color: var(--bg-color);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color: var(--text-color);
+    font-size: 15px;
 }
 
 .navbar_searchinput button {
     border: none;
-    background-color: var(--bg-color);
+    background-color: var(--line-bg-color);
     border-radius: 40px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
@@ -106,12 +112,15 @@
     color: var(--text-color);
     outline: none;
     cursor: pointer;
-    padding: 7px 10px;
+    padding: 7px 15px;
     /* Adjusted padding for button */
     border-left: 1px solid var(--line-bg-color);
     transition: background-color 0.3s ease;
     font-size: 20px;
-    /* Smooth transition on hover */
+}
+
+.navbar_searchinput button:hover {
+    background-color: var(--search-border);
 }
 
 .color_mode {
@@ -295,6 +304,10 @@
     .sidebar {
         width: 20vw;
     }
+
+    .navbar_searchinput button {
+        font-size: 19px;
+    }
 }
 
 @media (max-width:1300px) {
@@ -315,6 +328,10 @@
         /* Rounded corners for a more modern look */
         padding: 5px;
         /* Added padding for spacing */
+    }
+
+    .navbar_searchinput button {
+        font-size: 19px;
     }
 
 }
@@ -344,8 +361,9 @@
     }
 
     .navbar_searchinput button {
-        font-size: 15px;
+        font-size: 19px;
     }
+
 }
 
 @media (max-width:1050px) {
@@ -358,7 +376,7 @@
     }
 
     .navbar_searchinput button {
-        font-size: 15px;
+        font-size: 19px;
     }
 }
 
@@ -373,7 +391,7 @@
     }
 
     .navbar_searchinput button {
-        font-size: 15px;
+        font-size: 19px;
     }
 }
 
@@ -388,7 +406,7 @@
     }
 
     .navbar_searchinput button {
-        font-size: 15px;
+        font-size: 19px;
     }
 }
 
@@ -403,7 +421,7 @@
     }
 
     .navbar_searchinput button {
-        font-size: 15px;
+        font-size: 19px;
     }
 }
 
@@ -418,7 +436,7 @@
     }
 
     .navbar_searchinput button {
-        font-size: 15px;
+        font-size: 19px;
     }
 }
 
@@ -437,7 +455,7 @@
         height: 35px;
         /* Slightly increased height for better visibility */
         width: 100% !important;
-        border-radius: 20px;
+        border-radius: 0px;
     }
 }
 
@@ -452,7 +470,7 @@
     }
 
     .navbar_searchinput button {
-        font-size: 15px;
+        font-size: 19px;
     }
 }
 
@@ -467,7 +485,7 @@
     }
 
     .navbar_searchinput button {
-        font-size: 15px;
+        font-size: 19px;
     }
 }
 

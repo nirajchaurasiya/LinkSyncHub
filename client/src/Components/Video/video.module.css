@@ -42,6 +42,18 @@
     .video_flex {
         display: grid;
         gap: 10px;
+        top: 0 !important;
+        position: sticky !important;
+    }
+
+    .video_recommendation {
+        width: 99vw;
+        margin: auto;
+        padding: 0px 0 70px 0;
+    }
+
+    .recommended_videos {
+        width: 100% !important;
     }
 }
 
@@ -128,15 +140,65 @@
     flex: 2;
 }
 
-
 .actual_video_box video {
     width: 100%;
+
+}
+
+.change_box_shadow {
+    position: absolute;
+    z-index: -1;
+    height: 60vh;
+    width: 60vw;
     box-shadow:
-        2px 4px 200px rgba(208, 235, 90, 0.75),
-        2px 4px 200px rgba(233, 12, 188, 0.75),
-        2px 4px 200px rgba(3, 32, 33, 0.75);
+        2px 4px 200px rgba(78, 73, 77, 0.75),
+        2px 4px 200px rgba(47, 48, 48, 0.75);
     /* Add more box shadow values as needed */
 }
+
+@media (max-width:800px) {
+    .change_box_shadow {
+        position: absolute;
+        z-index: -1;
+        height: 40vh;
+        width: 60vw;
+        box-shadow:
+            2px 4px 200px rgba(78, 73, 77, 0.75),
+            2px 4px 200px rgba(47, 48, 48, 0.75);
+        /* Add more box shadow values as needed */
+    }
+}
+
+@media (max-width:500px) {
+    .change_box_shadow {
+        position: absolute;
+        z-index: -1;
+        height: 30vh;
+        width: 60vw;
+        box-shadow:
+            2px 4px 200px rgba(78, 73, 77, 0.75),
+            2px 4px 200px rgba(47, 48, 48, 0.75);
+        /* Add more box shadow values as needed */
+    }
+}
+
+@media (max-width:500px) {
+    .change_box_shadow {
+        position: absolute;
+        z-index: -1;
+        height: 25vh;
+        width: 60vw;
+        box-shadow:
+            2px 4px 200px rgba(201, 169, 195, 0.75),
+            2px 4px 200px rgba(147, 180, 180, 0.75);
+        /* Add more box shadow values as needed */
+    }
+}
+
+.no_shadow {
+    position: absolute;
+}
+
 
 .video_descriptions {
     display: grid;
@@ -171,15 +233,22 @@
 
 .channel_name p {
     color: var(--text-color);
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
+}
+
+.channel_name span {
+    color: var(--text-color);
+    font-size: 12px;
+    display: flex;
+    margin-bottom: -1px;
 }
 
 .subscribe_count {
-    font-size: 14px;
+    font-size: 11px;
 }
 
 .essential_btns {

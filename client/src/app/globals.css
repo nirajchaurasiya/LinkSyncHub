@@ -27,6 +27,11 @@
 
   --loading-bar-light-bg: #b2b4b4;
   --loading-bar-dark-bg: #464646;
+
+
+  --search-border-light: rgb(208, 203, 203);
+  --search-border-dark: rgb(53, 53, 53);
+
 }
 
 ::-webkit-scrollbar {
@@ -45,6 +50,8 @@ body {
   --line-bg-color: var(--light-line-bg-color);
   --hover-bg-color: var(--light-hover-bg-color);
   --loading-bar-bg: var(--loading-bar-light-bg);
+
+  --search-border: var(--search-border-light);
 }
 
 body.light {
@@ -55,6 +62,8 @@ body.light {
   transition: 0.2s all linear;
   --line-bg-color: var(--light-line-bg-color);
   --loading-bar-bg: var(--loading-bar-light-bg);
+
+  --search-border: var(--search-border-light);
 }
 
 body.dark {
@@ -65,6 +74,7 @@ body.dark {
   transition: 0.2s all linear;
   --line-bg-color: var(--dark-line-bg-color);
   --loading-bar-bg: var(--loading-bar-dark-bg);
+  --search-border: var(--search-border-dark);
 }
 
 
@@ -103,4 +113,20 @@ h6 {
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+}
+
+.no_transparent {
+  color: var(--text-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-color) !important;
+}
+
+.transparent {
+  background-color: transparent;
+  color: var(--text-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
