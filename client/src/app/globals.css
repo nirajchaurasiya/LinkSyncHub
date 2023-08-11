@@ -59,7 +59,6 @@ body.light {
   --text-color: var(--text-color-light);
 
   --hover-bg-color: var(--light-hover-bg-color);
-  transition: 0.2s all linear;
   --line-bg-color: var(--light-line-bg-color);
   --loading-bar-bg: var(--loading-bar-light-bg);
 
@@ -71,7 +70,6 @@ body.dark {
   --text-color: var(--text-color-dark);
 
   --hover-bg-color: var(--dark-hover-bg-color);
-  transition: 0.2s all linear;
   --line-bg-color: var(--dark-line-bg-color);
   --loading-bar-bg: var(--loading-bar-dark-bg);
   --search-border: var(--search-border-dark);
