@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./video.module.css";
 import Link from "next/link";
+import { MdOutlineSort } from "react-icons/md";
 import { MdVerified } from "react-icons/md";
 import { usePathname, useSearchParams } from "next/navigation";
 import { AiTwotoneLike, AiTwotoneDislike } from "react-icons/ai";
@@ -10,6 +11,7 @@ import "node_modules/video-react/dist/video-react.css";
 import Image from "next/image";
 export default function Video() {
   const [url, setUrl] = useState("");
+
   const [theme, setTheme] = useState("light");
   const [changeSubscriptionText, setChangeSubscriptionText] =
     useState("Subscribe");
@@ -44,7 +46,7 @@ export default function Video() {
             <Player
               playsInline
               poster="/others/img.png"
-              src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+              src="/others/video.mp4"
             />
           </div>
           {/*  */}
@@ -61,7 +63,7 @@ export default function Video() {
                   <Image
                     width={40}
                     height={40}
-                    src="/assests/user.png"
+                    src="/assests/channel.png"
                     alt="logo"
                   />
                 </Link>
@@ -108,6 +110,32 @@ export default function Video() {
                 </div>
               </div>
               {/*  */}
+            </div>
+            {/* Comment Section Start*/}
+            <div className={styles.comment_section}>
+              <div className={styles.comment_count}>
+                <p>393 Comments</p>
+                <span>
+                  <MdOutlineSort />
+                </span>
+              </div>
+              {/* Comment Box */}
+              <div className={styles.comment_box}>
+                {/* Comment user image */}
+                <div className={styles.comment_user_img}>
+                  <img src="/assests/user.png" alt="" />
+                </div>
+                <div className={styles.comment_input_btn}>
+                  {/* Cmt input */}
+                  <div className={styles.comment_input}>
+                    <input type="text" placeholder="Enter a comment" />
+                  </div>
+                  <div className={styles.comment_btn}>
+                    <button>Cancel</button>
+                    <button>Comment</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
