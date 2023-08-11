@@ -37,14 +37,10 @@ export default function Navbar() {
     // const toSet = theme === "light" ? "dark" : "light";
     if (theme === "light" || theme === "" || theme === undefined) {
       localStorage.setItem("linksynchub", "dark");
-      // document.body.classList.remove("light");
-      // document.body.classList.add("dark");
       setClassName("transparent");
       window.location.reload();
     } else {
       localStorage.setItem("linksynchub", "light");
-      // document.body.classList.remove("dark");
-      // document.body.classList.add("light");
       setClassName("no_transparent");
       window.location.reload();
     }
@@ -88,6 +84,18 @@ export default function Navbar() {
     }
   }, []);
   // const navbarClassName = !showBackground ? "no_transparent" : "transparent";
+  const showSideMenu = () => {
+    const background_blur = document.getElementById("background_blur");
+    console.log(background_blur);
+    setShowMenu(!showMenu);
+    if (showMenu) {
+      document.body.style.overflow = "hidden";
+      background_blur?.classList.add("background_blur");
+    } else {
+      document.body.style.overflowY = "scroll";
+      background_blur?.classList.remove("background_blur");
+    }
+  };
 
   return (
     <div id="main_navbar" className={className}>
@@ -95,12 +103,7 @@ export default function Navbar() {
       <div className={styles.nav}>
         {/* First Components */}
         <div className={styles.first_component}>
-          <div
-            className={styles.three_line}
-            onClick={() => {
-              setShowMenu(!showMenu);
-            }}
-          >
+          <div className={styles.three_line} onClick={showSideMenu}>
             <div></div>
             <div></div>
             <div></div>
@@ -148,7 +151,10 @@ export default function Navbar() {
         </div>
       </div>
       {/* Sidebar */}
-      <div className={!showMenu ? styles.sidebar : styles.hideSidebar}>
+      <div
+        id="sidebar"
+        className={!showMenu ? styles.sidebar : styles.hideSidebar}
+      >
         <div className={styles.sidebar_content}>
           {/* First Content */}
           <div className={styles.sidebar_first_content}>

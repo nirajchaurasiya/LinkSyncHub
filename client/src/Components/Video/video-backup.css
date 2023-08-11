@@ -1,0 +1,67 @@
+/* Video Controls */
+.video_controls {
+    position: absolute;
+    margin-top: -50px;
+    padding: 10px;
+    width: 61%;
+}
+
+.time_line {
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+}
+
+.time_line p {
+    position: absolute;
+    width: 100%;
+}
+
+.time_line p:first-child {
+    border: 1px solid white;
+    width: 100%;
+}
+
+.time_line p:last-child {
+    border: 2px solid red;
+    width: 60%;
+}
+
+.control_btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100% !important;
+}
+
+.play_pause_btn {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+.play_pause_btn span {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.total_time {
+    margin-top: -5px;
+    display: flex;
+}
+
+.total_time span {
+    font-size: 14px !important;
+
+}
+
+.right_controls {
+    display: flex;
+    margin-right: -20px;
+}
+
+.BiFullscreen p {
+    font-size: 20px;
+    cursor: pointer;
+}
