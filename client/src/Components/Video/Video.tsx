@@ -7,6 +7,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { AiTwotoneLike, AiTwotoneDislike } from "react-icons/ai";
 import { Player } from "video-react";
 import "node_modules/video-react/dist/video-react.css";
+import Image from "next/image";
 export default function Video() {
   const [url, setUrl] = useState("");
   const [theme, setTheme] = useState("light");
@@ -57,7 +58,12 @@ export default function Video() {
               {/*  */}
               <div className={styles.video_logo}>
                 <Link href={`/profile/TarakMehtaKaOoltahChashmah`}>
-                  <img src="/assests/user.png" alt="logo" />
+                  <Image
+                    width={40}
+                    height={40}
+                    src="/assests/user.png"
+                    alt="logo"
+                  />
                 </Link>
                 <div className={styles.channel_name}>
                   <Link href={`/profile/TarakMehtaKaOoltahChashmah`}>
@@ -117,7 +123,12 @@ export default function Video() {
                   href={`/video?src=${e}&channel=TarakMehtaKaOoltahChashmahEpisodes`}
                 >
                   <div className={styles.recommended_video_image}>
-                    <img src="/others/img.png" alt="video" />
+                    <Image
+                      width={150}
+                      height={90}
+                      src="/others/img.png"
+                      alt="video"
+                    />
                   </div>
                 </Link>
                 <Link

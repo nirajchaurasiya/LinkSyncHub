@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./page.module.css";
 import { MdVerified } from "react-icons/md";
 import Link from "next/link";
+import Image from "next/image";
 export default function Homepage() {
   return (
     <div className={styles.home_component}>
@@ -18,7 +19,12 @@ export default function Homepage() {
                   <Link
                     href={`/video?src=${e}&channel=TarakMehtaKaOoltahChashmahEpisodes`}
                   >
-                    <img src="/others/img.png" alt="" />
+                    <Image
+                      width="200"
+                      height="180"
+                      src="/others/img.png"
+                      alt=""
+                    />
                   </Link>
                 </div>
                 <div className={styles.description}>
@@ -28,7 +34,12 @@ export default function Homepage() {
                         style={{ color: "var(--text-color)" }}
                         href="/profile/TarakMehtaKaOoltahChashmah"
                       >
-                        <img src="/assests/user.png" alt="" />
+                        <Image
+                          width="40"
+                          height={40}
+                          src="/assests/user.png"
+                          alt=""
+                        />
                       </Link>
                     </div>
                     <Link

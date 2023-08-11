@@ -27,6 +27,7 @@ import {
 import { IoNotificationsSharp } from "react-icons/io5";
 import Link from "next/link";
 import { FaUserAlt } from "react-icons/fa";
+import Image from "next/image";
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(true);
   const [showProfile, setShowProfile] = useState(false);
@@ -139,7 +140,9 @@ export default function Navbar() {
             <p className={styles.notification_count}>9+</p>
           </div>
           <div className={styles.profile_picture}>
-            <img
+            <Image
+              width={30}
+              height={30}
               onClick={() => {
                 setShowNotification(false);
                 setShowProfile(!showProfile);
@@ -247,7 +250,12 @@ export default function Navbar() {
                 style={{ color: "var(--text-color)" }}
               >
                 <div className={styles.content}>
-                  <img src="/assests/user.png" alt="" />
+                  <Image
+                    width={30}
+                    height={30}
+                    src="/assests/user.png"
+                    alt=""
+                  />
                   <span>NIRAJ KUMAR CHAURASIYA</span>
                 </div>
               </Link>
@@ -293,7 +301,12 @@ export default function Navbar() {
             className={styles.main_profile_image_username}
           >
             <div className={styles.right_profile}>
-              <img src="/assests/user.png" alt="profile" />
+              <Image
+                width={30}
+                height={30}
+                src="/assests/user.png"
+                alt="profile"
+              />
             </div>
             <div className={styles.name_username}>
               <p>Niraj Chaurasiya</p>
@@ -434,7 +447,12 @@ export default function Navbar() {
                     <div>
                       {/* <div className={styles.notification_bg}></div> */}
                       <Link href={`/profile/TarakMehtaKaOoltahChashmah${e}`}>
-                        <img src="/assests/user.png" alt="channel" />
+                        <Image
+                          width={30}
+                          height={30}
+                          src="/assests/user.png"
+                          alt="channel"
+                        />
                       </Link>
                     </div>
                   </div>
@@ -464,7 +482,12 @@ export default function Navbar() {
                     }}
                     className={styles.notification_image}
                   >
-                    <img src="/others/img.png" alt="channel" />
+                    <Image
+                      width={60}
+                      height={50}
+                      src="/others/img.png"
+                      alt="channel"
+                    />
                   </div>
                   {/*  */}
                   <br />
