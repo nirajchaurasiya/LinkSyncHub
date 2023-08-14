@@ -111,8 +111,8 @@ export default function Video() {
               </div>
               {/*  */}
             </div>
-            {/* Comment Section Start*/}
-            <div className={styles.comment_section}>
+            {/* Comment div Start*/}
+            <div className={styles.comment_div}>
               <div className={styles.comment_count}>
                 <p>393 Comments</p>
                 <span>
