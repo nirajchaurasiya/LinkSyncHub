@@ -1,7 +1,7 @@
 import Providers from "./providers";
 import Navbar from "@/Components/Navbar/Navbar";
 import "./globals.css";
-import React from "react";
+import React, { Suspense } from "react";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 import type { Metadata } from "next";
@@ -23,7 +23,9 @@ export default function RootLayout({
         suppressHydrationWarning={true}
       >
         {" "}
-        <Navbar />
+        <Suspense>
+          <Navbar />
+        </Suspense>
         <Providers>{children}</Providers>
       </body>
     </html>
