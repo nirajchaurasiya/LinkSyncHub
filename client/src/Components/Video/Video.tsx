@@ -4,7 +4,7 @@ import styles from "./video.module.css";
 import Link from "next/link";
 import { MdOutlineSort } from "react-icons/md";
 import { MdVerified } from "react-icons/md";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { AiTwotoneLike, AiTwotoneDislike } from "react-icons/ai";
 import { Player } from "video-react";
 import "node_modules/video-react/dist/video-react.css";
@@ -15,14 +15,11 @@ export default function Video() {
   const [theme, setTheme] = useState("light");
   const [changeSubscriptionText, setChangeSubscriptionText] =
     useState("Subscribe");
-  const pathname = usePathname();
   const searchParams = useSearchParams();
   useEffect(() => {
-    // const url = `${pathname}?${searchParams}`; Full URL
-    const full_Url = `${pathname}?${searchParams}`;
-    const id = full_Url.split("=")[1].split("&")[0];
-    setUrl(id);
-  }, [searchParams, pathname, url]);
+    const vid = searchParams.get("src");
+    setUrl(vid || "");
+  }, [url]);
 
   useEffect(() => {
     if (localStorage) {
