@@ -23,9 +23,7 @@ export default function RootLayout({
         suppressHydrationWarning={true}
       >
         {" "}
-        <Suspense>
-          <Navbar />
-        </Suspense>
+        <Navbar />
         <Providers>{children}</Providers>
       </body>
     </html>
