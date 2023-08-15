@@ -24,7 +24,9 @@ export default function RootLayout({
       >
         {" "}
         <Navbar />
-        <Providers>{children}</Providers>
+        <Suspense>
+          <Providers>{children}</Providers>
+        </Suspense>
       </body>
     </html>
   );
