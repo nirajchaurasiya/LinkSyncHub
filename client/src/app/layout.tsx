@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   description:
     "LinkSynHub is the ultimate social media fusion app that brings together the power of video watching, news posting, and chatting in one seamless platform. Say goodbye to switching between apps – with LinkSynHub, you can enjoy all your favorite social media experiences in a single, convenient hub.",
 };
-
 export default function RootLayout({
   children,
 }: {
@@ -25,8 +24,8 @@ export default function RootLayout({
         {" "}
         <Suspense>
           <Navbar />
-          <Providers>{children}</Providers>
         </Suspense>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

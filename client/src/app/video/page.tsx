@@ -1,5 +1,5 @@
 import Video from "@/Components/Video/Video";
-import React from "react";
+import React, { Suspense } from "react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function page() {
-  return <Video />;
+  return (
+    <Suspense>
+      <Video />
+    </Suspense>
+  );
 }
