@@ -2,17 +2,27 @@
 import React, { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import {
+  BiMessageAlt,
   BiPodcast,
+  BiPopsicle,
+  BiRepost,
   BiSearch,
   BiSolidMoon,
   BiSolidPopsicle,
   BiSolidVideoPlus,
 } from "react-icons/bi";
+import { BsPostcardHeart, BsPostcardHeartFill } from "react-icons/bs";
 import {
   AiFillHome,
   AiFillSetting,
   AiOutlineHistory,
   AiFillLike,
+  AiOutlineHome,
+  AiOutlineVideoCamera,
+  AiOutlineLike,
+  AiOutlineAppstore,
+  AiOutlineSetting,
+  AiOutlineAppstoreAdd,
 } from "react-icons/ai";
 import { RiVideoFill } from "react-icons/ri";
 import {
@@ -23,16 +33,24 @@ import {
   MdOutlineLogout,
   MdSettings,
   MdHelp,
+  MdOutlineLibraryAdd,
+  MdPostAdd,
+  MdOutlineFeedback,
 } from "react-icons/md";
-import { IoNotificationsSharp } from "react-icons/io5";
+import {
+  IoNotifications,
+  IoNotificationsOff,
+  IoNotificationsOutline,
+} from "react-icons/io5";
 import Link from "next/link";
 import { FaUserAlt } from "react-icons/fa";
 import Image from "next/image";
-export default function Navbar() {
+export default function Navbar(props: any) {
   const [showMenu, setShowMenu] = useState(true);
   const [showProfile, setShowProfile] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [className, setClassName] = useState("transparent");
+  const [crossNavDiv, setCrossNavDiv] = useState(false);
   const toggleTheme = () => {
     const theme = localStorage.getItem("linksynchub");
     // const toSet = theme === "light" ? "dark" : "light";
@@ -89,12 +107,21 @@ export default function Navbar() {
     const background_blur = document.getElementById("background_blur");
     console.log(background_blur);
     setShowMenu(!showMenu);
+    const div = document.createElement("div");
+    div.className = "fixed_the_background";
     if (showMenu) {
       document.body.style.overflow = "hidden";
       background_blur?.classList.add("background_blur");
+      background_blur?.appendChild(div);
+      setCrossNavDiv(true);
     } else {
       document.body.style.overflowY = "scroll";
+      setCrossNavDiv(false);
       background_blur?.classList.remove("background_blur");
+      const div = background_blur?.querySelector(".fixed_the_background");
+      if (div) {
+        background_blur?.removeChild(div);
+      }
     }
   };
 
@@ -104,14 +131,21 @@ export default function Navbar() {
       <div className={styles.nav}>
         {/* First Components */}
         <div className={styles.first_component}>
-          <div className={styles.three_line} onClick={showSideMenu}>
+          <div
+            className={
+              crossNavDiv
+                ? styles.opened + " " + styles.three_line
+                : styles.three_line
+            }
+            onClick={showSideMenu}
+          >
             <div></div>
             <div></div>
             <div></div>
           </div>
           <div className={styles.nav_logo}>
             <Link href="/" style={{ color: "var(--text-color)" }}>
-              LinkSyncHub
+              {props.title}
             </Link>
           </div>
         </div>
@@ -136,7 +170,11 @@ export default function Navbar() {
             }}
             className={styles.notification_bell}
           >
-            <IoNotificationsSharp />
+            {!showNotification ? (
+              <IoNotificationsOutline />
+            ) : (
+              <IoNotifications />
+            )}
             <p className={styles.notification_count}>9+</p>
           </div>
           <div className={styles.profile_picture}>
@@ -164,7 +202,7 @@ export default function Navbar() {
             <Link style={{ color: "var(--text-color)" }} href="/">
               <div>
                 <p>
-                  <AiFillHome />
+                  <AiOutlineHome />
                 </p>
                 <span>HOME</span>
               </div>
@@ -172,7 +210,7 @@ export default function Navbar() {
             <Link style={{ color: "var(--text-color)" }} href="/new/videos">
               <div>
                 <p>
-                  <RiVideoFill />
+                  <AiOutlineVideoCamera />
                 </p>
                 <span>NEW VIDEOS</span>
               </div>
@@ -180,7 +218,7 @@ export default function Navbar() {
             <Link style={{ color: "var(--text-color)" }} href="/new/posts">
               <div>
                 <p>
-                  <BiSolidPopsicle />
+                  <MdPostAdd />
                 </p>
                 <span>NEW POSTS</span>
               </div>
@@ -200,7 +238,7 @@ export default function Navbar() {
             <Link style={{ color: "var(--text-color)" }} href="/liked/videos">
               <div>
                 <p>
-                  <AiFillLike />
+                  <AiOutlineLike />
                 </p>
                 <span>LIKED VIDEOS</span>
               </div>
@@ -208,7 +246,7 @@ export default function Navbar() {
             <Link style={{ color: "var(--text-color)" }} href="/liked/posts">
               <div>
                 <p>
-                  <BiPodcast />
+                  <BsPostcardHeart />
                 </p>
                 <span>LIKED POSTS</span>
               </div>
@@ -216,7 +254,7 @@ export default function Navbar() {
             <Link style={{ color: "var(--text-color)" }} href="/playlist">
               <div>
                 <p>
-                  <MdLibraryAdd />
+                  <MdOutlineLibraryAdd />
                 </p>
                 <span>PLAYLIST</span>
               </div>
@@ -225,7 +263,7 @@ export default function Navbar() {
             <Link style={{ color: "var(--text-color)" }} href="/upload/video">
               <div>
                 <p>
-                  <BiSolidVideoPlus />
+                  <AiOutlineVideoCamera />
                 </p>
                 <span>UPLOAD VIDEO</span>
               </div>
@@ -267,7 +305,7 @@ export default function Navbar() {
             <Link style={{ color: "var(--text-color)" }} href="/settings">
               <div>
                 <p>
-                  <AiFillSetting />
+                  <AiOutlineSetting />
                 </p>
                 <span>SETTING</span>
               </div>
@@ -275,7 +313,7 @@ export default function Navbar() {
             <Link href="/send-feedbacks" style={{ color: "var(--text-color)" }}>
               <div>
                 <p>
-                  <MdFeedback />
+                  <MdOutlineFeedback />
                 </p>
                 <span>SEND FEEDBACK</span>
               </div>

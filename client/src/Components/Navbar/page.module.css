@@ -33,7 +33,7 @@
     z-index: 2;
 }
 
-.first_component .three_line {
+.three_line {
     display: grid;
     gap: 5px;
     padding: 7px;
@@ -41,10 +41,31 @@
     border-radius: 100%;
 }
 
-.first_component .three_line div {
+.three_line div {
     height: 2px;
     width: 18px;
     background-color: var(--text-color);
+    transition: 0.3s all ease;
+    /* Add transition for smooth animation */
+}
+
+.opened div:nth-child(1) {
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+
+.opened div:nth-child(2) {
+    position: absolute;
+    transform: rotate(-45deg);
+    transform-origin: center;
+    /* Hide the middle line */
+}
+
+.opened div:nth-child(3) {
+    transition: 0.2s all linear;
+    opacity: 0;
+    display: none;
+    position: absolute;
 }
 
 .nav_logo {
@@ -169,19 +190,7 @@
     cursor: pointer;
 }
 
-.sidebar {
-    z-index: -1;
-    position: fixed;
-    left: 0;
-    opacity: 1 !important;
-    top: 0;
-    width: 15vw;
-    height: 100%;
-    background-color: var(--bg-color);
-    transition: transform 0.2s ease;
-    transform: translateX(0deg);
-    overflow: hidden;
-}
+
 
 .sidebar:hover {
     overflow-y: scroll;
@@ -280,8 +289,22 @@
     width: 15vw;
     height: 100%;
     background-color: var(--bg-color);
-    transition: transform 0.2s ease;
+    transition: transform .1s ease-out;
     transform: translateX(-450%);
+}
+
+.sidebar {
+    z-index: -1;
+    position: fixed;
+    left: 0;
+    opacity: 1 !important;
+    top: 0;
+    width: 15vw;
+    height: 100%;
+    background-color: var(--bg-color);
+    transition: transform .1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: translateX(0deg);
+    overflow: hidden;
 }
 
 .profile {

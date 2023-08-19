@@ -32,6 +32,8 @@
   --search-border-light: rgb(208, 203, 203);
   --search-border-dark: rgb(53, 53, 53);
 
+  --subscribe-count-light: rgb(65, 64, 64);
+  --subscribe-count-dark: rgb(166, 164, 164);
 }
 
 ::-webkit-scrollbar {
@@ -52,6 +54,8 @@ body {
   --loading-bar-bg: var(--loading-bar-light-bg);
 
   --search-border: var(--search-border-light);
+
+  --subscribe-count: var(--subscribe-count-dark);
 }
 
 body.light {
@@ -63,6 +67,8 @@ body.light {
   --loading-bar-bg: var(--loading-bar-light-bg);
 
   --search-border: var(--search-border-light);
+
+  --subscribe-count: var(--subscribe-count-light);
 }
 
 body.dark {
@@ -73,6 +79,7 @@ body.dark {
   --line-bg-color: var(--dark-line-bg-color);
   --loading-bar-bg: var(--loading-bar-dark-bg);
   --search-border: var(--search-border-dark);
+  --subscribe-count: var(--subscribe-count-dark);
 }
 
 
@@ -132,4 +139,15 @@ h6 {
 .background_blur {
   transition: 0.3s all ease;
   opacity: .6;
+}
+
+.fixed_the_background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 999;
+  cursor: default;
 }

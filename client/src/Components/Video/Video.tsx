@@ -5,7 +5,13 @@ import Link from "next/link";
 import { MdOutlineSort } from "react-icons/md";
 import { MdVerified } from "react-icons/md";
 import { useSearchParams } from "next/navigation";
-import { AiTwotoneLike, AiTwotoneDislike } from "react-icons/ai";
+import {
+  AiTwotoneLike,
+  AiTwotoneDislike,
+  AiOutlineLike,
+  AiOutlineDisconnect,
+  AiOutlineDislike,
+} from "react-icons/ai";
 import { Player } from "video-react";
 import "node_modules/video-react/dist/video-react.css";
 import Image from "next/image";
@@ -84,13 +90,12 @@ export default function Video() {
                   <button>
                     <p>141</p>
                     <span>
-                      <AiTwotoneLike />
+                      <AiOutlineLike />
                     </span>
                   </button>
                   <button>
-                    <p>141</p>
                     <span>
-                      <AiTwotoneDislike />
+                      <AiOutlineDislike />
                     </span>
                   </button>
                 </div>

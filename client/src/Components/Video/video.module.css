@@ -142,13 +142,13 @@
 
 .actual_video_box video {
     width: 100%;
-
+    user-select: none;
 }
 
 .change_box_shadow {
     position: absolute;
     z-index: -1;
-    height: 60vh;
+    height: 70vh;
     width: 60vw;
     animation: animate 60s infinite linear;
 }
@@ -315,6 +315,7 @@
 
 .subscribe_count {
     font-size: 11px;
+    color: var(--subscribe-count) !important;
 }
 
 .essential_btns {
@@ -325,8 +326,11 @@
 
 .like_unlike_btn {
     display: flex;
-    gap: 10px;
     align-items: center;
+    background-color: var(--bg-color);
+    gap: 5px;
+    border-radius: 10px;
+    padding: 3px;
 }
 
 .like_unlike_btn button {
@@ -335,13 +339,15 @@
     outline: none;
     cursor: pointer;
     display: flex;
-    border: 1px solid var(--hover-bg-color);
-    border-radius: 10px;
     cursor: pointer;
     align-items: center;
-    background-color: var(--bg-color);
+    background-color: transparent;
     color: var(--text-color);
     gap: 10px;
+}
+
+.like_unlike_btn button:last-child {
+    border-left: 1px solid var(--hover-bg-color);
 }
 
 .like_unlike_btn span {
@@ -353,19 +359,23 @@
 }
 
 .subscribe_btn button {
-    padding: 10px;
+    padding: 13px;
+    border-radius: 10px;
+    width: 90px;
     border: none;
     outline: none;
-    height: 38px;
-    width: 90px;
     cursor: pointer;
-    border: 1px solid var(--hover-bg-color);
-    border-radius: 10px;
+    display: flex;
     cursor: pointer;
+    align-items: center;
     background-color: var(--bg-color);
     color: var(--text-color);
+    gap: 10px;
 }
 
+.subscribe_btn button:active {
+    background-color: var(--hover-bg-color);
+}
 
 /* Recommended Video Box */
 

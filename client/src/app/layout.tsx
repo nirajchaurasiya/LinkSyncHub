@@ -23,7 +23,7 @@ export default function RootLayout({
       >
         {" "}
         <Suspense>
-          <Navbar />
+          <Navbar title="LinkSyncHub" />
         </Suspense>
         <Providers>{children}</Providers>
       </body>
